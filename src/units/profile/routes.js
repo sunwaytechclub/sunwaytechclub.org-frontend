@@ -5,4 +5,7 @@ let ROUTES = [
     // Current routes go here
     ['/', () => run(import("./Index.svelte"))]
 ]
-export default Router(ROUTES)
+export default Router(ROUTES, [ // Optional 
+    // All child routers go here
+
+])

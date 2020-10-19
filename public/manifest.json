@@ -1,9 +1,9 @@
 {
-  "name": "Your app name",
-  "short_name": "Your app name",
-  "background_color": "#000000",
+  "name": "Sunway Tech Club Official Website",
+  "short_name": "Sunway Tech Club",
+  "background_color": "#FFFFFF",
   "orientation": "portrait",
-  "theme_color": "#000000",
+  "theme_color": "#44BB87",
   "display": "standalone",
   "start_url": "/",
   "icons": [
