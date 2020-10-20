@@ -11,11 +11,11 @@
 
 For branching strategy we follow the following prefix:
 
-- Feature: `Feature <your feature>`
+- Feature: `Feature/<your feature>`
 
   - Basically the page you are working on
 
-- Issue: `Issue <your issue>`
+- Issue: `Issue/<your issue>`
 
   - The heavy bug that you are trying to solve
 
@@ -90,7 +90,7 @@ As you can see, it's a recursive pattern that can scale.
 
 Compared with typical `components, pages` structure, this way it makes the frontend app more scalable.
 
-## Creating global components <a name="global-components"></a>
+## 🧱 Creating global components <a name="global-components"></a>
 
 A global components are components those will be shared among all the units, example be `button`, `navbar`, etc.
 
