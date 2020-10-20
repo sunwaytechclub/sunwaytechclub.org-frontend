@@ -5,6 +5,7 @@
 - [Branching Strategy](#branching)
 - [Commit message practices](#commit-message)
 - [Folder structure practices](#file-structure)
+- [Creating global components](#global-components)
 
 ## 🌿 Branching Strategy <a name="branching"></a>
 
@@ -88,5 +89,25 @@ units
 As you can see, it's a recursive pattern that can scale.
 
 Compared with typical `components, pages` structure, this way it makes the frontend app more scalable.
+
+## Creating global components <a name="global-components"></a>
+
+A global components are components those will be shared among all the units, example be `button`, `navbar`, etc.
+
+To create a global component, simply create it under `/src/components`
+
+There is only 1 practice, try to keep the usage as close to how we will be using a native HTML tag, an example has shown below:
+
+Scenario: creating a text input
+
+1. Create a component called `TextInput.svelte`
+2. Utilize Sveltejs `$$restProp` and `slot` features
+  
+    - 2.0 Perform any styling as you want
+    - 2.1 `<input {...$$restProp}/>`
+
+        - `$$restProp` are the extra props that passed down, in this case all the extra props will be passed into the actual `<input>` tag.
+
+Just a rule on thumb, try to make it as flexible to suit any situation as possible, try not to hard-code it.
 
 And that's it! Happy coding 😋
