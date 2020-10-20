@@ -21,7 +21,7 @@
 		transform: perspective(1000px);
 	}
 
-	.button:hover:not(.button:disabled) {
+	.button:not(:disabled):hover {
 		/* Create zoom in effect on button that is not disabled and hovered */
 		transform: perspective(1000px) translate3d(0, 0, 43px);
 	}
