@@ -33,4 +33,6 @@
 	}
 </style>
 
-<button on:click class="button" {...$$restProps}>Learn More</button>
+<button on:click class="button" {...$$restProps}>
+	<slot />
+</button>
