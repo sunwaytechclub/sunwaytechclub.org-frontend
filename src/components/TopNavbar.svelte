@@ -17,8 +17,8 @@
 			path: "/stores",
 		},
 		{
-			title: "My Profile",
-			path: "/profile",
+			title: "Dashboard",
+			path: "/dashboard",
 		},
 	];
 	navigations = navigations.map((n) => {
@@ -27,19 +27,21 @@
 	});
 
 	uri.subscribe((newURI) => {
-		/** Get the category of the current path
-		/* e.g. 
-		/* current path = /event/future/settings
-		/* available paths = ['/event', '/event/future']
-		/* The algorithm will categorize it under '/event/future' category
-		*/
+		// Get the category of the current path
 		let navigation = categorize(navigations, newURI);
 		navigations = navigations.map((n) => {
 			n.active = false;
 			return n;
 		});
 		navigation.active = true;
+		expand = false;
 	});
+
+	function avatar_loaded(img) {
+		setTimeout(() => {
+			img.src = "/assets/avatar.png";
+		}, 2000);
+	}
 </script>
 
 <style>
@@ -52,8 +54,11 @@
 	/* Navbar */
 	.nav {
 		width: 100vw;
-		height: 54px;
+		height: 60px;
 		padding: 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 	.nav--expand {
 		transform: translate3d(75vw, 0, 0);
@@ -134,6 +139,22 @@
 
 		padding-left: 20px;
 	}
+
+	/* Profile */
+	.profile__avatar {
+		width: 35px;
+		height: 35px;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		border-radius: 50%;
+		background-color: var(--yellow);
+	}
+	.profile__avatar__icon {
+		width: 19px;
+	}
 </style>
 
 <div class="sidenav" class:sidenav--expand={expand}>
@@ -167,4 +188,17 @@
 		on:click={() => {
 			expand = !expand;
 		}} />
+	<div
+		class="profile"
+		on:click={() => {
+			history.pushState(null, '/profile', '/profile');
+		}}>
+		<div class="profile__avatar">
+			<img
+				use:avatar_loaded
+				src="/assets/avatar.gif"
+				alt="avatar"
+				class="profile__avatar__icon" />
+		</div>
+	</div>
 </nav>

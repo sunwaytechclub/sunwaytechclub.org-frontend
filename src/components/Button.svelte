@@ -34,7 +34,7 @@
 
 	.button:disabled {
 		/* Color */
-		background-color: #e0e0e0;
+		background-color: #e0e0e0 !important;
 		color: #828282;
 	}
 </style>
