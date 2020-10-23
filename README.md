@@ -74,7 +74,6 @@ To eject PWA mode, simply run the command `DISABLE_PWA=true npm run build`
 > If you ever encountered any unexpected behavior, try to open it in incognito mode :/
 
 This template is made with the philosophy of Encapsulation, all units should be able to deploy anywhere.
-Hence, a general folder structure for a unit will be like this, with an example:
 
 A sample file for the unit's routes is inside `/src/routes.sample.js`. Simply copy that file and paste it into your unit's folder!
 
