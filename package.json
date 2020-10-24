@@ -4,7 +4,7 @@
   "scripts": {
     "build": "rollup -c",
     "autobuild": "rollup -c -w",
-    "dev": "run-p start:dev autobuild",
+    "dev": "run-p autobuild",
     "start": "sirv public --single",
     "start:dev": "sirv public --dev --single",
     "storybook": "start-storybook -p 6006",
@@ -30,6 +30,7 @@
     "react-is": "^17.0.1",
     "rollup": "^1.29.0",
     "rollup-plugin-cleaner": "^1.0.0",
+    "rollup-plugin-dev": "^1.1.2",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-postcss": "^3.1.8",
     "rollup-plugin-serve": "^1.0.4",
