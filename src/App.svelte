@@ -1,13 +1,12 @@
 <script>
 	import { onDestroy } from "svelte";
-	import { Route, params } from "@/components/stores.js";
+	import { Route, params, uri } from "@/components/stores.js";
 	import router from "@/rootRoutes";
 
-	let uri = location.pathname;
-
+	uri.set(location.pathname);
 	function track(obj) {
-		uri = obj.state || obj.uri || location.pathname;
-		if (window.ga) ga.send("pageview", { dp: uri });
+		$uri = obj.state || obj.uri || location.pathname;
+		if (window.ga) ga.send("pageview", { dp: $uri });
 	}
 
 	addEventListener("replacestate", track);
