@@ -146,7 +146,7 @@
 		background-color: var(--yellow);
 	}
 	.profile__avatar__icon {
-		width: 25px;
+		width: 19px;
 	}
 </style>
 
