@@ -3,8 +3,10 @@
 	import { Route, params, uri } from "@/components/stores.js";
 	import router from "@/rootRoutes";
 	import TopNavbar from "@/components/TopNavbar.svelte";
+	import SideNavbar from "@/components/SideNavbar.svelte";
 
 	let expand = false;
+	let mobile = window.innerWidth < 1100;
 
 	uri.set(location.pathname);
 	function track(obj) {
@@ -15,6 +17,9 @@
 	addEventListener("replacestate", track);
 	addEventListener("pushstate", track);
 	addEventListener("popstate", track);
+	addEventListener("resize", () => {
+		mobile = window.innerWidth < 1100;
+	});
 
 	router.listen();
 
@@ -25,7 +30,7 @@
 	* {
 		transition: transform 0.2s ease-in-out;
 	}
-	.main {
+	.wrapper {
 		width: 100vw;
 		overflow: hidden;
 	}
@@ -34,7 +39,13 @@
 	}
 </style>
 
-<TopNavbar bind:expand />
-<main class="main" class:expand>
-	<svelte:component this={$Route} {$params} />
-</main>
+<div class="wrapper">
+	{#if mobile}
+		<TopNavbar bind:expand />
+	{:else}
+		<SideNavbar />
+	{/if}
+	<main class="main" class:expand>
+		<svelte:component this={$Route} {$params} />
+	</main>
+</div>
