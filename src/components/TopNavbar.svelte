@@ -48,26 +48,6 @@
 	}
 
 	/* Effect */
-	.expand {
-		transform: translate3d(0, 0, 0) !important;
-	}
-	.navbarExpand {
-		transform: translate3d(75vw, 0, 0);
-	}
-	.active {
-		background-color: #32363a;
-	}
-
-	.active::after {
-		content: "";
-
-		background-color: var(--purple);
-
-		width: 10px;
-		height: 100%;
-		position: absolute;
-		right: 0;
-	}
 
 	/* Navbar */
 	.nav {
@@ -75,6 +55,10 @@
 		height: 54px;
 		padding: 20px;
 	}
+	.nav--expand {
+		transform: translate3d(75vw, 0, 0);
+	}
+
 	.nav__hamburger {
 		cursor: pointer;
 	}
@@ -88,6 +72,9 @@
 		position: fixed;
 		top: 0;
 		transform: translate3d(-75vw, 0, 0);
+	}
+	.sidenav--expand {
+		transform: translate3d(0, 0, 0) !important;
 	}
 
 	/* Header */
@@ -116,6 +103,7 @@
 		display: flex;
 		flex-direction: column;
 	}
+
 	.navigation__tab {
 		height: 60px;
 		display: flex;
@@ -124,6 +112,21 @@
 
 		text-decoration: none;
 	}
+	.navigation__tab--active {
+		background-color: #32363a;
+	}
+
+	.navigation__tab--active::after {
+		content: "";
+
+		background-color: var(--purple);
+
+		width: 10px;
+		height: 100%;
+		position: absolute;
+		right: 0;
+	}
+
 	.navigation__tab__link {
 		color: rgb(236, 236, 236);
 		font-weight: bold;
@@ -133,7 +136,7 @@
 	}
 </style>
 
-<div class="sidenav" class:expand>
+<div class="sidenav" class:sidenav--expand={expand}>
 	<!-- Header -->
 	<div class="header">
 		<img class="header__logo" src="/icon.png" alt="logo" />
@@ -145,7 +148,10 @@
 	<!-- Navigation -->
 	<ul class="navigation">
 		{#each navigations as n}
-			<a href={n.path} class="navigation__tab" class:active={n.active}>
+			<a
+				href={n.path}
+				class="navigation__tab"
+				class:navigation__tab--active={n.active}>
 				<p class="navigation__tab__link">{n.title}</p>
 			</a>
 		{/each}
@@ -153,7 +159,7 @@
 </div>
 
 <!-- Mobile top nav bar with hamburger -->
-<nav class="nav" class:navbarExpand={expand}>
+<nav class="nav" class:nav--expand={expand}>
 	<img
 		src="/assets/hamburger.svg"
 		alt="hamburger"
