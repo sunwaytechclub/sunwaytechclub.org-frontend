@@ -14,7 +14,8 @@ const DefaultTemplate = (args) => ({
     },
     props: {
         disabled: args.disabled,
-        style: `margin:1em;background-color:${args.backgroundColor}`,
+        style: `margin:1em;`,
+        backgroundColor: args.backgroundColor
     }
 })
 
