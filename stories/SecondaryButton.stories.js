@@ -7,21 +7,18 @@ export default {
     component: Button
 };
 
-export const Default = () => ({
+const DefaultTemplate = (args) => ({
     Component: Button,
     on: {
         click: action('Clicked')
+    },
+    props: {
+        disabled: args.disabled,
+        style: "margin:1em;"
     }
 })
 
-export const Disabled = () => {
-    return {
-        Component: Button,
-        on: {
-            click: action('Clicked')
-        },
-        props: {
-            disabled: true
-        }
-    }
+export const Default = DefaultTemplate.bind({})
+Default.args = {
+    disabled: false
 }

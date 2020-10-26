@@ -2,6 +2,7 @@
 node_modules
 package-lock.json
 yarn.lock
+storybook-static/
 
 public/*
 !public/index.html
@@ -9,6 +10,7 @@ public/*
 !public/favicon.png
 !public/icon.png
 !public/manifest.json
+!public/assets/
 
 # Service Worker
 **/workbox*
