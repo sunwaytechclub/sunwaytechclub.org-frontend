@@ -1,11 +1,11 @@
 import Breadcrumb from '../src/components/Breadcrumb.svelte';
 
 export default {
-    title: 'Navbar/Breadcrumb',
+    title: 'Header/Breadcrumb',
     component: Breadcrumb,
     argTypes: {
-        navigations: {
-            name: 'Breadcrumbs',
+        paths: {
+            name: 'Paths',
             description: 'An array of all the breadcrumbs in path'
         }
     }
@@ -14,11 +14,20 @@ export default {
 const DefaultTemplate = (args) => ({
     Component: Breadcrumb,
     props: {
-
+        paths: args.paths
     }
 })
 
 export const Default = DefaultTemplate.bind({})
 Default.args = {
-
+    paths: [
+        {
+            title: "Past Events",
+            path: "/event",
+        },
+        {
+            title: "AGM",
+            path: "/event/1",
+        },
+    ]
 }
