@@ -1,9 +1,9 @@
 import { action } from '@storybook/addon-actions';
 
-import Button from '../src/components/SecondaryButton.svelte';
+import Button from '../src/components/Button.svelte';
 
 export default {
-    title: 'Button/Secondary Button',
+    title: 'Button/Button',
     component: Button
 };
 
@@ -14,11 +14,12 @@ const DefaultTemplate = (args) => ({
     },
     props: {
         disabled: args.disabled,
-        style: "margin:1em;"
+        style: `margin:1em;background-color:${args.backgroundColor}`,
     }
 })
 
 export const Default = DefaultTemplate.bind({})
 Default.args = {
-    disabled: false
+    disabled: false,
+    backgroundColor: "var(--purple)"
 }

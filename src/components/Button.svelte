@@ -1,3 +1,10 @@
+<script>
+	export let backgroundColor = "var(--purple)";
+	function mounted(obj) {
+		obj.style.backgroundColor = backgroundColor;
+	}
+</script>
+
 <style>
 	.button {
 		/* Font */
@@ -6,7 +13,6 @@
 
 		/* Color */
 		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-		background-color: var(--purple);
 		color: white;
 		border: none;
 
@@ -33,6 +39,6 @@
 	}
 </style>
 
-<button on:click class="button" {...$$restProps}>
+<button use:mounted on:click class="button" {...$$restProps}>
 	<slot>Click me</slot>
 </button>
