@@ -1,6 +1,8 @@
 <script>
 	import { uri } from "@/components/stores.js";
 	import categorize from "@/utils/categorizeURI";
+	import { fly } from "svelte/transition";
+	import { linear } from "svelte/easing";
 
 	export let expand = false;
 	export let navigations = [
@@ -49,8 +51,6 @@
 		transition: transform 0.2s ease-in-out;
 	}
 
-	/* Effect */
-
 	/* Navbar */
 	.nav {
 		width: 100vw;
@@ -76,10 +76,6 @@
 		width: 75vw;
 		position: fixed;
 		top: 0;
-		transform: translate3d(-75vw, 0, 0);
-	}
-	.sidenav--expand {
-		transform: translate3d(0, 0, 0) !important;
 	}
 
 	/* Header */
@@ -157,27 +153,31 @@
 	}
 </style>
 
-<div class="sidenav" class:sidenav--expand={expand}>
-	<!-- Header -->
-	<div class="header">
-		<img class="header__logo" src="/icon.png" alt="logo" />
-		<p class="header__logo__name">
-			stc<span class="header__logo__name_dot">.</span>
-		</p>
-	</div>
+{#if expand}
+	<div
+		class="sidenav"
+		transition:fly={{ x: -300, duration: 200, easing: linear, opacity: 1 }}>
+		<!-- Header -->
+		<div class="header">
+			<img class="header__logo" src="/icon.png" alt="logo" />
+			<p class="header__logo__name">
+				stc<span class="header__logo__name_dot">.</span>
+			</p>
+		</div>
 
-	<!-- Navigation -->
-	<ul class="navigation">
-		{#each navigations as n}
-			<a
-				href={n.path}
-				class="navigation__tab"
-				class:navigation__tab--active={n.active}>
-				<p class="navigation__tab__link">{n.title}</p>
-			</a>
-		{/each}
-	</ul>
-</div>
+		<!-- Navigation -->
+		<ul class="navigation">
+			{#each navigations as n}
+				<a
+					href={n.path}
+					class="navigation__tab"
+					class:navigation__tab--active={n.active}>
+					<p class="navigation__tab__link">{n.title}</p>
+				</a>
+			{/each}
+		</ul>
+	</div>
+{/if}
 
 <!-- Mobile top nav bar with hamburger -->
 <nav class="nav" class:nav--expand={expand}>
