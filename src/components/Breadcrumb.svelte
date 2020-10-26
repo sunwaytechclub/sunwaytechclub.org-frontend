@@ -38,18 +38,18 @@
 	}
 
 	/* Path */
+	.breadcrumb__paths {
+		display: flex;
+	}
 	.breadcrumb__path {
 		color: white;
 		font-family: var(--title);
 		font-weight: 500;
+		font-size: calc(var(--p2) + 1px);
 		text-decoration: none;
 
 		display: flex;
 		white-space: nowrap;
-	}
-
-	.breadcrumb__paths {
-		display: flex;
 	}
 	.breadcrumb__path:not(:first-of-type) {
 		margin-right: 10px;
