@@ -34,5 +34,5 @@
 </style>
 
 <button on:click class="button" {...$$restProps}>
-	<slot />
+	<slot>Click me</slot>
 </button>
