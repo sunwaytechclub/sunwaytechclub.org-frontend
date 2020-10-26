@@ -34,6 +34,7 @@
 			return n;
 		});
 		navigation.active = true;
+		expand = false;
 	});
 
 	function avatar_loaded(img) {
