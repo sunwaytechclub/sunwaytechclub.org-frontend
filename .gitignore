@@ -10,6 +10,7 @@ public/*
 !public/favicon.png
 !public/icon.png
 !public/manifest.json
+!public/assets/
 
 # Service Worker
 **/workbox*
