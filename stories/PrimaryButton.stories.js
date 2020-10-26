@@ -13,7 +13,8 @@ const DefaultTemplate = (args) => ({
         click: action('Clicked')
     },
     props: {
-        disabled: args.disabled
+        disabled: args.disabled,
+        style: "margin:1em;"
     }
 })
 
