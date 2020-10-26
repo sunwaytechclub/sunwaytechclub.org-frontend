@@ -35,6 +35,12 @@
 		});
 		navigation.active = true;
 	});
+
+	function avatar_loaded(img) {
+		setTimeout(() => {
+			img.src = "/assets/avatar.png";
+		}, 2000);
+	}
 </script>
 
 <style>
@@ -188,6 +194,7 @@
 		}}>
 		<div class="profile__avatar">
 			<img
+				use:avatar_loaded
 				src="/assets/avatar.gif"
 				alt="avatar"
 				class="profile__avatar__icon" />
