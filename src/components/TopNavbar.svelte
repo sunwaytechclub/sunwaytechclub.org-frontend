@@ -7,24 +7,24 @@
 		{
 			title: "Upcoming Events",
 			path: "/event",
-			active: false,
 		},
 		{
 			title: "Past Events",
 			path: "/event/past",
-			active: false,
 		},
 		{
 			title: "Merchandise Store",
 			path: "/stores",
-			active: false,
 		},
 		{
 			title: "My Profile",
 			path: "/profile",
-			active: false,
 		},
 	];
+	navigations = navigations.map((n) => {
+		n["active"] = false;
+		return n;
+	});
 
 	uri.subscribe((newURI) => {
 		/** Get the category of the current path
@@ -69,12 +69,17 @@
 		right: 0;
 	}
 
-	/* Navbar and sidenav */
+	/* Navbar */
 	.nav {
 		width: 100vw;
 		height: 54px;
 		padding: 20px;
 	}
+	.nav__hamburger {
+		cursor: pointer;
+	}
+
+	/* Sidenav */
 	.sidenav {
 		background-color: #282d31;
 
@@ -152,6 +157,7 @@
 	<img
 		src="/assets/hamburger.svg"
 		alt="hamburger"
+		class="nav__hamburger"
 		on:click={() => {
 			expand = !expand;
 		}} />
