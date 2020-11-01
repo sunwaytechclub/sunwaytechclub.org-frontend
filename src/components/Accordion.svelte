@@ -46,6 +46,7 @@
     position: relative;
     box-sizing: border-box;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    background-color: white;
   }
   .panel:first-child {
     border-top: none;
@@ -80,7 +81,7 @@
   .panel__content {
     overflow: auto;
     margin: 0;
-    padding: 15px 16px;
+    padding: 15px 22px;
   }
   .panel__disabled {
     opacity: 0.5;

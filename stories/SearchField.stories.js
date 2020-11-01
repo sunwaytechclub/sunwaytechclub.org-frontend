@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions";
 import SearchField from "../src/components/SearchField.svelte";
 
 export default {
-	title: "Search Field",
+	title: "Search Field/Search Field",
 	component: SearchField,
 };
 

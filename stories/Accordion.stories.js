@@ -1,9 +1,7 @@
-import { action } from "@storybook/addon-actions";
-
 import Accordion from "../src/components/Accordion.svelte";
 
 export default {
-	title: "Accordion",
+	title: "Accordion/Accordion",
 	component: Accordion,
 };
 
