@@ -29,40 +29,9 @@
   </script>
   
   <style>
-    form {
-      background: #fff;
-    }
-    label {
-      margin: 10px 0;
-    }
-    input {
-      border: none;
-    }
-    input:focus {
-      outline: 0;
-    }
-    button {
-      margin-top: 20px;
       
-    }
-    button:hover {
-      transform: translateY(-2.5px);
-      box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.58);
-    }
-    h1 {
-      margin: 10px 20px 30px 20px;
-      font-size: 40px;
-    }
-    .errors {
-      list-style-type: none;
-      
-    }
-    .success {
-      font-size: 24px;
-      text-align: center;
-    }
   </style>
   
   <form>
-      
+
   </form>
