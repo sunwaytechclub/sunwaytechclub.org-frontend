@@ -34,12 +34,15 @@
 		width: 100vw;
 		overflow: hidden;
 	}
+	.wrapper--hozizontal {
+		display: flex;
+	}
 	.expand {
 		transform: translate3d(75vw, 0, 0);
 	}
 </style>
 
-<div class="wrapper">
+<div class="wrapper" class:wrapper--hozizontal={!mobile}>
 	{#if mobile}
 		<TopNavbar bind:expand />
 	{:else}
