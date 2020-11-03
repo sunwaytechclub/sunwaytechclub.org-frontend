@@ -6,9 +6,10 @@
   import { fly } from "svelte/transition";
   import { cubicInOut } from "svelte/easing";
 
-  export let collapseFeature = false;
   export let name = "Anonymous Cute Cute Girl";
   export let memberType = "Premium Member";
+  export let expand = true;
+  export let collapseFeature = false;
   export let navigations = [
     {
       title: "Upcoming Events",
@@ -27,8 +28,6 @@
       path: "/dashboard"
     }
   ];
-
-  let expand = true;
 
   if (collapseFeature) {
     expand = false;
@@ -61,7 +60,7 @@
     padding: 40px 55px;
     box-shadow: 10px 10px 16px #f2f2f2;
     width: 300px;
-    height: 100%;
+    height: 100vh;
     position: fixed;
     background-color: white;
   }
@@ -90,10 +89,10 @@
     color: var(--orange);
   }
 
-  /* Nav */
-  .nav {
+  /* Sidenav Collapse */
+  .sidenavCollapse {
     width: 90px;
-    height: 100%;
+    height: 100vh;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -102,21 +101,21 @@
     box-shadow: 10px 10px 16px #f2f2f2;
     position: fixed;
   }
-  .nav__hamburger {
+  .sidenavCollapse__hamburger {
     cursor: pointer;
     margin-top: 10px;
     width: 24px;
   }
-  .nav__header {
+  .sidenavCollapse__header {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .nav__header__logo {
+  .sidenavCollapse__header__logo {
     width: 55px;
     margin-top: 30px;
   }
-  .nav__profile {
+  .sidenavCollapse__profile {
     margin-bottom: 20px;
   }
 
@@ -181,7 +180,29 @@
   }
 </style>
 
-{#if expand}
+{#if collapseFeature && !expand}
+  <div
+    class="sidenavCollapse"
+    transition:fly={{ x: -300, duration: 250, easing: cubicInOut, opacity: 0.5 }}>
+    <div class="sidenavCollapse__header">
+      <img
+        src="/assets/hamburger-3-lines.svg"
+        alt="hamburger"
+        class="sidenavCollapse__hamburger"
+        on:click={() => {
+          expand = !expand;
+        }} />
+      <img
+        src="/icon.png"
+        class="sidenavCollapse__header__logo"
+        alt="stc logo" />
+    </div>
+    <img
+      src="/assets/avatar.png"
+      class="sidenavCollapse__profile"
+      alt="avatar" />
+  </div>
+{:else}
   <div
     class="sidenav"
     transition:fly={{ x: -300, duration: 250, easing: cubicInOut, opacity: 0.5 }}>
@@ -250,20 +271,4 @@
       </div>
     </div>
   </div>
-{:else}
-  <nav
-    class="nav"
-    transition:fly={{ x: -300, duration: 250, easing: cubicInOut, opacity: 0.5 }}>
-    <div class="nav__header">
-      <img
-        src="/assets/hamburger-3-lines.svg"
-        alt="hamburger"
-        class="nav__hamburger"
-        on:click={() => {
-          expand = !expand;
-        }} />
-      <img src="/icon.png" class="nav__header__logo" alt="stc logo" />
-    </div>
-    <img src="/assets/avatar.png" class="nav__profile" alt="avatar" />
-  </nav>
 {/if}
